@@ -94,12 +94,14 @@ import (
 //	return res["openid"], nil
 //}
 
+// sercret = ab6230d9bbac6a47665e1a859526b8b2
+
 func GetOpenId(code string) (string, error) {
 	//合成url, 这里的appId和secret是在微信公众平台上获取的
 	//https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code
 	url := "https://api.weixin.qq.com/sns/jscode2session?" +
 		"appid=" + "wx34dbd6a627989185" + //小程序appId
-		"&secret=" + "ab6230d9bbac6a47665e1a859526b8b2" + // 小程序appSecret
+		"&secret=" + sercret + // 小程序appSecret
 		"&js_code=" + code + //用户的code, 登录时获取
 		"&grant_type=authorization_code"
 	obj, err := http.Get(url)
